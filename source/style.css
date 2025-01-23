@@ -69,7 +69,9 @@ header {
 .weather-app-icon {
   width: 110px;
   height: 110px;
-  size: 100px;
+  margin-top: 20px;
+  margin-right: -30px;
+
 }
 .weatehr-app-unit {
   margin-top: 6px;
