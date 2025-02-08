@@ -10,6 +10,9 @@ function updateweather(response) {
   humidityLevel.innerHTML = ` %${response.data.temperature.humidity}`;
   let windSpeed = document.querySelector("#wind");
   windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
+  let date= new Date(response.data.time * 1000);
+let time=document.querySelector("#time");
+time.innerHTML=formatDate(date);
 }
 
 function searchcity(city) {
@@ -30,3 +33,16 @@ let search = document.querySelector(".search-form");
 search.addEventListener("submit", runTheSearch);
 
 searchcity("tehran");
+
+function formatDate(date){
+  let days=[
+    "sunday","monday","tuesday","wednessday","thursday","friday","saturday"
+  ]
+  let day=days[date.getDay()];
+  let minutes=date.getMinutes();
+  let hours=date.getHours();
+  return `${day} ${hours}:${minutes}`;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+}
